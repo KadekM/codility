@@ -1,0 +1,10 @@
+import scala.collection.JavaConversions._
+
+object Solution {
+    def solution(A: Array[Int], B: Array[Int]): Int = {
+        A.zip(B).foldLeft((0, -1)) {
+          case ((cnt, max), (a, b)) if a > max => (cnt + 1, b)
+          case (ag, _) => ag
+        }._1
+    }
+}
